@@ -1,4 +1,4 @@
-Aderant.LunchAndLearn.AsyncAwait
-================================
+Lunch & Learn Talk: Async & await
+=================================
 
-Demo application for the Lunch and Learn talk about async and await.
+Slides and demo application for the Lunch and Learn talk about async and await.
