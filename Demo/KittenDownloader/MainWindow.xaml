@@ -1,0 +1,45 @@
+﻿<Window x:Class="Massive.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:massive="clr-namespace:Massive"
+        Title="Kitten Finder" Height="596" Width="1006">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="10">
+            <TextBlock>How many kittens do you want?</TextBlock>
+            <Grid>
+                <TextBox x:Name="kittenTextBox" HorizontalAlignment="Stretch" Height="23" Margin="0,5,85,0" TextWrapping="Wrap" Text="10" />
+                <Button Content="Gimme!" HorizontalAlignment="Right" Width="75" Margin="0,5,5,0" Click="Button_Click"/>
+            </Grid>
+        </StackPanel>
+
+        <ListBox ItemsSource="{Binding Kittens}" Grid.Row="1" Margin="10" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal"></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding ImageSource}" Stretch="Uniform" Width="120"></Image>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <ListBox ItemsSource="{Binding Messages}" massive:ListBoxBehavior.ScrollOnNewItem="True" Grid.Column="1" Grid.Row="1" Margin="10" >
+            
+        </ListBox>
+
+        <ProgressBar Grid.Row="2" Height="23" x:Name="ProgressBar"  Margin="10,0,10,10"></ProgressBar>
+
+    </Grid>
+</Window>
